@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Review Template</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+    }
+    header {
+      background: #d84315;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .hero {
+      width: 100%;
+      height: 300px;
+      background: url('https://via.placeholder.com/1200x300') center/cover;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+    }
+    .restaurant-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stars {
+      color: gold;
+      font-size: 1.2em;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .menu-item {
+      background: #fafafa;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .review-section textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #d84315;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .review-list {
+      margin-top: 20px;
+    }
+    .review {
+      background: #fafafa;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Restaurant Name</h1>
+  <p>123 Main Street, City | (123) 456-7890</p>
+</header>
+
+<div class="hero"></div>
+
+<div class="container">
+  <div class="restaurant-info">
+    <div class="stars">★★★★★</div>
+    <p><strong>Cuisine:</strong> Italian, Continental</p>
+    <p><strong>Opening Hours:</strong> 10:00 AM - 11:00 PM</p>
+  </div>
+
+  <h2>Menu Highlights</h2>
+  <div class="menu">
+    <div class="menu-item"><strong>Margherita Pizza</strong><br>$10</div>
+    <div class="menu-item"><strong>Pasta Alfredo</strong><br>$12</div>
+    <div class="menu-item"><strong>Tiramisu</strong><br>$6</div>
+  </div>
+
+  <h2>Write a Review</h2>
+  <div class="review-section">
+    <textarea id="reviewText" placeholder="Share your experience..."></textarea>
+    <button onclick="addReview()">Submit Review</button>
+  </div>
+
+  <div class="review-list" id="reviewList">
+    <h2>Customer Reviews</h2>
+  </div>
+</div>
+
+<script>
+  function addReview() {
+    const text = document.getElementById('reviewText').value;
+    if (text.trim() === '') return alert('Please write something.');
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review');
+    reviewDiv.textContent = text;
+    document.getElementById('reviewList').appendChild(reviewDiv);
+    document.getElementById('reviewText').value = '';
+  }
+</script>
+
+</body>
+</html>
